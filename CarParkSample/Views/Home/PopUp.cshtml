@@ -2,6 +2,7 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +64,7 @@
 
             view.ui.add("instruction", "bottom-left");
 
-          
+
 
             var simpleMarkerSymbol = {
                 type: "simple-marker",
@@ -84,9 +85,10 @@
                             type: "point",
                             longitude: item.boylam,
                             latitude: item.enlem,
+                            id: item.id,
                             data: item
                         };
-                       
+
 
                         var pointGraphic = new Graphic({
                             geometry: point,
@@ -111,22 +113,32 @@
              *******************************************************************/
             view.popup.autoOpenEnabled = false;
             var lat = 0;
-                var lon = 0;
+            var lon = 0;
 
-              
-                view.on("click", function (event) {
-                   
-                view.popup.open({
-                    // Set the popup's title to the coordinates of the location
-                    title: "Reverse geocode: [" + lon + ", " + lat + "]",
-                    location: event.mapPoint
+
+            view.on("click", function (event) {
+
+                //view.popup.open({
+                //    // Set the popup's title to the coordinates of the location
+                //    title: "Reverse geocode: [" + lon + ", " + lat + "]",
+                //    location: event.mapPoint
+                //});
+
+
+                $(function () {
+                    // When an 'image' input element is clicked (which is what an ImageButton generates)
+                    $('').click(function () {
+                        // Alert it's ID
+                        alert($(this).attr('id'));
+                    });
                 });
+
 
                 console.log(event);
                 lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
                 lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
 
-               // $('#recorddetail').modal('show');
+                $('#recorddetail').modal('show');
 
             })
 
@@ -152,25 +164,91 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div>
-                        <label for="">Street : </label>
-                        <input for="" id="street" />
+                        <label for="">ID : </label>
+                        <input for="" id="id" />
 
                     </div>
                     <div>
-                        <label for="">City : </label>
-                        <input for="" id="city" />
+                        <label for="">Park ID : </label>
+                        <input for="" id="park" />
 
                     </div>
                     <div>
-                        <label for="">Region : </label>
-                        <input for="" id="region" />
+                        <label for="">Park Adı : </label>
+                        <label for="" id="parkadi"></label>
+
+                    </div>
+
+                    <div>
+                        <label for="">Lokasyon Adı : </label>
+                        <input for="" id="lokadi" />
+
+                    </div>
+
+                    <div>
+                        <label for="">Park Tipi : </label>
+                        <input for="" id="parktipi" />
 
                     </div>
                     <div>
-                        <label for="">Country : </label>
-                        <input for="" id="country" />
+                        <label for="">Park Kapasitesi : </label>
+                        <input for="" id="kapasite" />
 
                     </div>
+                    <div>
+                        <label for="">Çalışma Saatleri : </label>
+                        <input for="" id="saat" />
+
+                    </div>
+
+                    <div>
+                        <label for="">Bolge : </label>
+                        <input for="" id="bolge" />
+
+                    </div>
+
+                    <div>
+                        <label for="">Alt Bolge : </label>
+                        <input for="" id="altbolge" />
+
+                    </div>
+
+                    <div>
+                        <label for="">İlce : </label>
+                        <input for="" id="ilce" />
+
+                    </div>
+                    <div>
+                        <label for="">Adres : </label>
+                        <input for="" id="adres" />
+
+                    </div>
+                    <div>
+                        <label for="">Boylam : </label>
+                        <input for="" id="boylam" />
+
+                    </div>
+                    <div>
+                        <label for="">Enlem : </label>
+                        <input for="" id="enlem" />
+
+                    </div>
+                    <div>
+                        <label for="">Aylık Abonelik Ucreti : </label>
+                        <input for="" id="ucret" />
+
+                    </div>
+                    <div>
+                        <label for="">Ucretsiz Parklanma Suresi(dakika) : </label>
+                        <input for="" id="sure" />
+
+                    </div>
+                    <div>
+                        <label for="">Tarifesi : </label>
+                        <input for="" id="tarife" />
+
+                    </div>
+
                 </div>
 
                 <!-- Modal footer -->
@@ -193,9 +271,22 @@
 
         $("#kayit").click(function () {
 
-            alert("arada bir fark var");
+
             var record = new Object();
             record.ParkAdi = $("#parkadi").val();
+            record.ParkID = $("#park").val();
+            record.LokasyonAdi = $("#lokadi").val();
+            record.ParkTipi = $("#parktipi").val();
+            record.ParkKapasitesi = $("#kapasite").val();
+            record.CalismaSaatleri = $("#saat").val();
+            record.Bolge = $("#bolge").val();
+            record.AltBolge = $("#altbolge").val();
+            record.Ilce = $("#ilce").val();
+            record.Adres = $("#adres").val();
+            record.AylikAbonelikUcreti = $("#ucret").val();
+            record.UcretsizParklanmaSuresi(dakika) = $("#sure").val();
+            record.Tarifesi = $("#tarife").val();
+
             record.enlem = lat;
             record.boylam = lon;
 

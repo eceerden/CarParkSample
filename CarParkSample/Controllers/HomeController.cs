@@ -157,7 +157,9 @@ namespace CarParkSample.Controllers
            return Redirect("/Home/RecordList");
         }
 
-        public  IActionResult Edit(int id) 
+   
+
+        public IActionResult Edit(int id)
         {
             Record record = _parkcontext.Records.FirstOrDefault(x => x._id == id);
 
@@ -166,17 +168,12 @@ namespace CarParkSample.Controllers
             model.ParkID = record.ParkID;
             model.ParkAdi = record.ParkAdi;
             model.LokasyonAdi = record.LokasyonAdi;
-            model.LokasyonID = record.LokasyonID;
             model.LokasyonKodu = record.LokasyonKodu;
-            model.ParkTipiID = record.ParkTipiID;
             model.ParkTipi = record.ParkTipi;
-           model.ParkKapasitesi = record.ParkKapasitesi;
+            model.ParkKapasitesi = record.ParkKapasitesi;
             model.CalismaSaatleri = record.CalismaSaatleri;
-            model.BolgeID = record.BolgeID;
             model.Bolge = record.Bolge;
-            model.AltBolgeID = record.AltBolgeID;
             model.AltBolge = record.AltBolge;
-            model.IlceID = record.IlceID;
             model.Ilce = record.Ilce;
             model.Adres = record.Adres;
             model.Enlem_Boylam = record.Enlem_Boylam;
@@ -188,12 +185,97 @@ namespace CarParkSample.Controllers
             model.Tarifesi = record.Tarifesi;
             model.Park_Et_Devam_Et_Noktasi = record.Park_Et_Devam_Et_Noktasi;
 
+
+            List<Record> records = _parkcontext.Records.ToList();
+
+            List<AltBolgeDTO> altBolgeDTOs = new List<AltBolgeDTO>();
+
+            foreach (var item in records)
+            {
+                var recordControl = altBolgeDTOs.FirstOrDefault(x => x.AltBolgeAd == item.AltBolge);
+
+                if (recordControl == null)
+                {
+                    AltBolgeDTO modelaltbolge = new AltBolgeDTO();
+
+                    modelaltbolge.AltBolgeAd = item.AltBolge;
+                    altBolgeDTOs.Add(modelaltbolge);
+
+                }
+
+            }
+
+            model.AltBolgeDTOs = altBolgeDTOs;
+
+
+
+            List<IlceDTO> IlceDTOs = new List<IlceDTO>();
+
+            foreach (var item in records)
+            {
+                var recordControl = IlceDTOs.FirstOrDefault(x => x.IlceAd == item.Ilce);
+
+                if (recordControl == null)
+                {
+                    IlceDTO modelılce = new IlceDTO();
+
+                    modelılce.IlceAd = item.Ilce;
+                    IlceDTOs.Add(modelılce);
+                }
+
+            }
+
+            model.IlceDTOs = IlceDTOs;
+
+
+            List<ParkTipiDTO> parkTipiDTOs = new List<ParkTipiDTO>();
+
+            foreach (var item in records)
+            {
+                var recordControl = parkTipiDTOs.FirstOrDefault(x => x.ParkTipiAd == item.ParkTipi);
+
+                if (recordControl == null)
+                {
+                    ParkTipiDTO modelparktipi = new ParkTipiDTO();
+
+                    modelparktipi.ParkTipiAd = item.ParkTipi;
+                    parkTipiDTOs.Add(modelparktipi);
+                }
+
+
+            }
+
+            model.ParkTipiDTOs = parkTipiDTOs;
+
+
             return View(model);
-
-
         }
 
-      
+
+        [HttpPost]
+        public IActionResult Edit(RecordDTO model, string ParkTipi, string Bolge, string Altbolge, string Ilce)
+        {
+            Record record = _parkcontext.Records.FirstOrDefault(q => q._id == model._id);
+
+            record.ParkAdi = model.ParkAdi;
+            record.LokasyonAdi = model.LokasyonAdi;
+            record.ParkKapasitesi = model.ParkKapasitesi;
+            record.CalismaSaatleri = model.CalismaSaatleri;
+            record.Aylik_Abonelik_Ucreti = model.Aylik_Abonelik_Ucreti;
+            record.Ucretsiz_Parklanma_Suresi_dakika = model.Ucretsiz_Parklanma_Suresi_dakika;
+            record.Tarifesi = model.Tarifesi;
+            record.Adres = model.Adres;
+
+            record.ParkTipi = ParkTipi;
+            record.Bolge = Bolge;
+            record.AltBolge = Altbolge;
+            record.Ilce = Ilce;
+
+            _parkcontext.SaveChanges();
+
+            return RedirectToAction("RecordList", "Home");
+
+        }
 
     }
 }

@@ -26,6 +26,12 @@ namespace CarParkSample.Controllers
                 record.AltBolge = recorddto.AltBolge;
                 record.Enlem = recorddto.Enlem;
                 record.Boylam = recorddto.Boylam;
+                record.Aylik_Abonelik_Ucreti = recorddto.Aylik_Abonelik_Ucreti;
+                record.Bolge = recorddto.Bolge;
+                record.CalismaSaatleri = recorddto.CalismaSaatleri;
+                record.Ilce = recorddto.Ilce;
+                record.LokasyonAdi = recorddto.LokasyonAdi;
+                record.Ucretsiz_Parklanma_Suresi_dakika = recorddto.Ucretsiz_Parklanma_Suresi_dakika;
 
                 _parkcontext.RecordSelects.Add(record);
                 _parkcontext.SaveChanges();

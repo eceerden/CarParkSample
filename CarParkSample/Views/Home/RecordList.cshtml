@@ -26,79 +26,91 @@
 
 
 
+<div class="card">
 
-<table id="example" class="table table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>_id</th>
-            <th>Park ID</th>
-            <th>Park Adi</th>
-            <th>Lokasyon ID</th>
-            <th>Lokasyon Kodu</th>
-            <th>Lokasyon Adi</th>
-            <th>Park Tipi ID</th>
-            <th>Park Tipi</th>
-            <th>Park Kapasitesi</th>
-            <th>Calisma Saatleri</th>
-            <th>Bolge ID</th>
-            <th>Bolge</th>
-            <th>Alt Bolge ID</th>
-            <th>Alt Bolge</th>
-            <th>Ilce ID</th>
-            <th>Ilce</th>
-            <th>Adres</th>
-            <th>Enlem/Boylam</th>
-            <th>Polygon Verisi</th>
-            <th>Boylam</th>
-            <th>Enlem</th>
-            <th>Aylik Abonelik Ucreti</th>
-            <th>Ucretsiz Parklanma Suresi(dakika)</th>
-            <th>Tarifesi</th>
-            <th>Park Et Devam Et Noktası</th>
-            <th>İşlemler</th>
-        </tr>
-    </thead>
+    <div class="card-header">
+        <h3 class="card-title">Mevcut Otoparklar</h3>
+    </div>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item._id</td>
-                <td>@item.ParkID</td>
-                <td>@item.ParkAdi</td>
-                <td>@item.LokasyonID</td>
-                <td>@item.LokasyonKodu</td>
-                <td>@item.LokasyonAdi</td>
-                <td>@item.ParkTipiID</td>
-                <td>@item.ParkTipi</td>
-                <td>@item.ParkKapasitesi</td>
-                <td>@item.CalismaSaatleri</td>
-                <td>@item.BolgeID</td>
-                <td>@item.Bolge</td>
-                <td>@item.AltBolgeID</td>
-                <td>@item.AltBolge</td>
-                <td>@item.IlceID</td>
-                <td>@item.Ilce</td>
-                <td>@item.Adres</td>
-                <td>@item.Enlem_Boylam</td>
-                <td>@item.Polygon_Verisi</td>
-                <td>@item.Boylam</td>
-                <td>@item.Enlem</td>
-                <td>@item.Aylik_Abonelik_Ucreti</td>
-                <td>@item.Ucretsiz_Parklanma_Suresi_dakika</td>
-                <td>@item.Tarifesi</td>
-                <td>@item.Park_Et_Devam_Et_Noktasi</td>
+    <div class="card-body">
+        <table id="example" class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>_id</th>
+                    <th>Park ID</th>
+                    <th>Park Adi</th>
+                    <th>Lokasyon ID</th>
+                    <th>Lokasyon Kodu</th>
+                    <th>Lokasyon Adi</th>
+                    <th>Park Tipi ID</th>
+                    <th>Park Tipi</th>
+                    <th>Park Kapasitesi</th>
+                    <th>Calisma Saatleri</th>
+                    <th>Bolge ID</th>
+                    <th>Bolge</th>
+                    <th>Alt Bolge ID</th>
+                    <th>Alt Bolge</th>
+                    <th>Ilce ID</th>
+                    <th>Ilce</th>
+                    <th>Adres</th>
+                    <th>Enlem/Boylam</th>
+                    <th>Polygon Verisi</th>
+                    <th>Boylam</th>
+                    <th>Enlem</th>
+                    <th>Aylik Abonelik Ucreti</th>
+                    <th>Ucretsiz Parklanma Suresi(dakika)</th>
+                    <th>Tarifesi</th>
+                    <th>Park Et Devam Et Noktası</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
 
-                <td><a href=""><button class="btn-primary">Edit</button></a>
-                <button id="@item._id" class="btn btn-danger delete" type="submit">Delete</button></td>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item._id</td>
+                        <td>@item.ParkID</td>
+                        <td>@item.ParkAdi</td>
+                        <td>@item.LokasyonID</td>
+                        <td>@item.LokasyonKodu</td>
+                        <td>@item.LokasyonAdi</td>
+                        <td>@item.ParkTipiID</td>
+                        <td>@item.ParkTipi</td>
+                        <td>@item.ParkKapasitesi</td>
+                        <td>@item.CalismaSaatleri</td>
+                        <td>@item.BolgeID</td>
+                        <td>@item.Bolge</td>
+                        <td>@item.AltBolgeID</td>
+                        <td>@item.AltBolge</td>
+                        <td>@item.IlceID</td>
+                        <td>@item.Ilce</td>
+                        <td>@item.Adres</td>
+                        <td>@item.Enlem_Boylam</td>
+                        <td>@item.Polygon_Verisi</td>
+                        <td>@item.Boylam</td>
+                        <td>@item.Enlem</td>
+                        <td>@item.Aylik_Abonelik_Ucreti</td>
+                        <td>@item.Ucretsiz_Parklanma_Suresi_dakika</td>
+                        <td>@item.Tarifesi</td>
+                        <td>@item.Park_Et_Devam_Et_Noktasi</td>
 
-            </tr>
-        }
+                        <td>
+                            <a href="/Home/Edit/@item._id" class="btn btn-primary" role="button">Edit</a>
+                            <button id="@item._id" class="btn btn-danger delete" type="submit">Delete</button>
+                        </td>
 
-    </tbody>
+                    </tr>
+                }
+
+            </tbody>
 
 
-</table>
+        </table>
+    </div>
+
+</div>
+
 
 
 <script>

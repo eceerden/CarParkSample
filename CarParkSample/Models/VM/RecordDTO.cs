@@ -65,6 +65,10 @@ namespace CarParkSample.Models.VM
 
         [JsonProperty("Polygon Verisi")]
         public string Polygon_Verisi { get; set; }
+        public List<AltBolgeDTO> AltBolgeDTOs { get; set; }
+        public List<BolgeDTO> BolgeDTOs { get; set; }
+        public List<IlceDTO> IlceDTOs { get; set; }
+        public List<ParkTipiDTO> ParkTipiDTOs { get; set; }
 
     }
 }
