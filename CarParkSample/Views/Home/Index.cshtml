@@ -48,12 +48,33 @@
             });
         });
         require(["esri/PopupTemplate"], function (PopupTemplate) { /* code goes here */ });
+
+
+        const sketch = new Sketch({
+            layer: layer,
+            view: view,
+            availableCreateTools: ["point"]
+        });
+
+        view.ui.add(sketch, "top-right");
+
+        sketch.on('create', function (evt) {
+            console.log("X = ", evt.graphic.geometry.x);
+            console.log("Y = ", evt.graphic.geometry.y);
+        });
+});
     </script>
 </head>
 <body>
     <div id="mapvw"></div>
 </body>
 </html>
+
+<script>
+    var url = 'https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id=c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9'
+
+    $.getJSON(url, function (data) { })
+</script>
 
 
 
@@ -70,10 +91,11 @@
 
        
         url: 'https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id=c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9',
-        type: 'get', mode: 'no-cors',
-        //headers: { 'Content-type': 'application/json; charset:UTF-8,  Access-Allow-Origin-Credentials: true, CrossOrigin: true' },
-      headers : headers.Append('Access-Control-Allow-Origin', 'https://localhost:44398/'),
-        headers: headers.Append('Access-Control-Allow-Credentials', 'true'),
+        type: 'GET', mode: 'cors',
+        headers: {
+            'Content-type': 'application/json; charset:UTF-8,  Access-Allow-Origin-Credentials: true, Access- Control - Allow - Origin: https://localhost:44398' },
+      //headers : headers.Append('Access-Control-Allow-Origin', 'https://localhost:44398/'),
+      //  headers: headers.Append('Access-Control-Allow-Credentials', 'true'),
           data: data,
         datatype: 'jsonp',
         success: function (data) {

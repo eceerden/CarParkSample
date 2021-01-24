@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <!--
+    ArcGIS API for JavaScript, https://js.arcgis.com
+    For more information about the graphics_svg_path sample, read the original sample description at developers.arcgis.com.
+    https://developers.arcgis.com/javascript/3/jssamples/graphics_svg_path.html
+    -->
+    <title>SimpleMarkerSymbol with SVG Path - Simplified</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.35/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.35/dojox/widget/ColorPicker/ColorPicker.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.35/esri/css/esri.css">
+    <style>
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+      
+    </style>
+    <script src="https://js.arcgis.com/3.35/"></script>
+    <script>
+        var map;
+
+        require([
+            "esri/map", "esri/geometry/Point",
+            "esri/symbols/SimpleMarkerSymbol", "esri/graphic",
+            "dojo/_base/array", "dojo/dom-style", "dojox/widget/ColorPicker",
+            "dojo/domReady!"
+        ], function (
+            Map, Point,
+            SimpleMarkerSymbol, Graphic,
+            arrayUtils, domStyle, ColorPicker
+        ) {
+
+            map = new Map("map", {
+                basemap: "topo-vector",
+                center: [28.9795, 41.015137],
+                zoom: 13
+            });
+
+               
+                map.on("click", myClickHandler);
+
+                function myClickHandler(e) {
+                    console.log(e);
+
+                    console.log(e.mapPoint.x);
+                    console.log(e.mapPoint.y);
+                    e.mapPoint.spatialReference = new SpatialReference({ wkid: 5252 });  //or some other spatial reference object
+                    console.log(e.mapPoint);
+
+                }
+
+           
+
+            map.on("load", mapLoaded);
+
+                async function mapLoaded() {
+
+                    var pointlist = [];
+
+                    await fetch("/Home/Records")
+                        .then((res) => res.json())
+                        .then((result) => {
+
+                            result.forEach((item) => {
+                                let point = [];
+                                point.push(item.boylam);
+                                point.push(item.enlem);
+
+                                pointlist.push(point);
+                            })
+
+
+                        })
+
+
+
+                    var iconPath = "M10,0.186c-3.427,0-6.204,2.778-6.204,6.204c0,5.471,6.204,6.806,6.204,13.424c0-6.618,6.204-7.953,6.204-13.424C16.204,2.964,13.427,0.186,10,0.186z M10,14.453c-0.66-1.125-1.462-2.076-2.219-2.974C6.36,9.797,5.239,8.469,5.239,6.39C5.239,3.764,7.374,1.63,10,1.63c2.625,0,4.761,2.135,4.761,4.761c0,2.078-1.121,3.407-2.541,5.089C11.462,12.377,10.66,13.328,10,14.453z";
+                var initColor = "#ce641d";
+                    arrayUtils.forEach(pointlist, function (point) {
+                    var graphic = new Graphic(new Point(point), createSymbol(iconPath, initColor));
+                    map.graphics.add(graphic);
+                });
+
+              
+            }
+
+            function createSymbol(path, color) {
+                var markerSymbol = new esri.symbol.SimpleMarkerSymbol();
+                markerSymbol.setPath(path);
+                markerSymbol.setColor(new dojo.Color(color));
+                markerSymbol.setOutline(null);
+                return markerSymbol;
+            }
+        });
+    </script>
+</head>
+<body class="claro">
+    <div id="map"></div>
+    <div id="picker1"></div>
+</body>
+</html>

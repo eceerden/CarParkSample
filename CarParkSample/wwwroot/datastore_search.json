@@ -1,0 +1,374 @@
+{
+  "help": "https://data.ibb.gov.tr/api/3/action/help_show?name=datastore_search",
+  "success": true,
+  "result": {
+    "include_total": true,
+    "resource_id": "c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9",
+    
+    "fields": [
+      {
+        "type": "int",
+        "id": "_id"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park id verisi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Park ID"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park ad\u0131 verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Park Adi"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait lokasyon id verisi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Lokasyon ID"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait lokasyon kodu verisi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Lokasyon Kodu"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait lokasyon ad\u0131 verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Lokasyon Adi"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park tipi id verisi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Park Tipi ID"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park tipi verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Park Tipi"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park kapasitesi verisi",
+          "type_override": "numeric",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Park Kapasitesi"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait \u00e7al\u0131\u015fma saatleri verisi",
+          "type_override": "text",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Calisma Saatleri"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait b\u00f6lge id verisi",
+          "type_override": "numeric",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Bolge ID"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait b\u00f6lge verisi",
+          "type_override": "text",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Bolge"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait alt b\u00f6lge id verisi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Alt Bolge ID"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait alt b\u00f6lge verisi",
+          "type_override": "text",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Alt Bolge"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait il\u00e7e id verisi",
+          "type_override": "numeric",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Ilce ID"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait il\u00e7e verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Ilce"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait adres verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Adres"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait enlem/boylam verisi",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Enlem/Boylam"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait polygon verisi",
+          "type_override": "polygon",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Polygon Verisi"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait boylam verisi",
+          "type_override": "point",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Boylam"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait enlem verisi",
+          "type_override": "point",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Enlem"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait ayl\u0131k abonelik \u00fccreti",
+          "type_override": "numeric",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Aylik Abonelik Ucreti"
+      },
+      {
+        "info": {
+          "type_override": "numeric",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait dakika cinsinden \u00fccretsiz parklanma s\u00fcresi",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Ucretsiz Parklanma Suresi (dakika)"
+      },
+      {
+        "info": {
+          "type_override": "text",
+          "notes": "\u0130SPARK Otoparklar\u0131na ait tarife bilgileri",
+          "label": ""
+        },
+        "type": "text",
+        "id": "Tarifesi"
+      },
+      {
+        "info": {
+          "notes": "\u0130SPARK Otoparklar\u0131na ait park et devam et noktas\u0131",
+          "type_override": "numeric",
+          "label": ""
+        },
+        "type": "numeric",
+        "id": "Park Et Devam Et Noktasi"
+      }
+    ],
+    "records_format": "objects",
+    "records": [
+      {
+        "_id": 1,
+        "Park ID": 359,
+        "Park Adi": "Atatürk Bulvarı 1",
+        "Lokasyon ID": 150,
+        "Lokasyon Kodu": 1,
+        "Lokasyon Adi": "0001 Atatürk Bulvarı 1",
+        "Park Tipi ID": 2,
+        "Park Tipi": "YOL ÜSTÜ",
+        "Park Kapasitesi": 18,
+        "Calisma Saatleri": "07:30-18:30",
+        "Bolge ID": 4,
+        "Bolge": "Avrupa",
+        "Alt Bolge ID": 545,
+        "Alt Bolge": "Avrupa 3",
+        "Ilce ID": 20,
+        "Ilce": "FATİH",
+        "Adres": "KEMALPAŞA MAHALLESİ ATATÜRK BULVARI 1 / EMİNÖNÜ",
+        "Enlem/Boylam": "POINT (28.953538299155497 41.011291499669255)",
+        "Polygon Verisi": "MULTIPOLYGON (((28.95351077 41.01117896, 28.95357531 41.01118019, 28.95356583 41.01140403, 28.95350128 41.01140281, 28.95351077 41.01117896)))",
+        "Boylam": 28.953538299155500368442517356015741825103759765625,
+        "Enlem": 41.0112914996692978775172377936542034149169921875,
+        "Aylik Abonelik Ucreti": 0.00,
+        "Ucretsiz Parklanma Suresi (dakika)": 15,
+        "Tarifesi": "0-1 Saat  : 10,00;1-2 Saat  : 11,00;2-4 Saat  : 14,00;4-8 Saat  : 16,00;Tam Gün  : 20,00",
+        "Park Et Devam Et Noktasi": 0
+      },
+      {
+        "_id": 2,
+        "Park ID": 860,
+        "Park Adi": "Bakırköy İstanbul Caddesi 1",
+        "Lokasyon ID": 384,
+        "Lokasyon Kodu": 2,
+        "Lokasyon Adi": "0002 Bakırköy İstanbul Caddesi",
+        "Park Tipi ID": 2,
+        "Park Tipi": "YOL ÜSTÜ",
+        "Park Kapasitesi": 30,
+        "Calisma Saatleri": "08:00-19:00",
+        "Bolge ID": 4,
+        "Bolge": "Avrupa",
+        "Alt Bolge ID": 1083,
+        "Alt Bolge": "Avrupa 4",
+        "Ilce ID": 7,
+        "Ilce": "BAKIRKÖY",
+        "Adres": "YEŞİLKÖY MAHALLESİ İSTANBUL CADDESİ ÜZERİ BAKIRKÖY",
+        "Enlem/Boylam": "POINT (28.8747420429072 40.97837155571149)",
+        "Polygon Verisi": "MULTIPOLYGON (((28.87445897 40.97835591, 28.87446054 40.97833384, 28.87502705 40.97838761, 28.87502549 40.97840923, 28.87445897 40.97835591)))",
+        "Boylam": 28.8747420429072008118964731693267822265625,
+        "Enlem": 40.97837155571149736488223425112664699554443359375,
+        "Aylik Abonelik Ucreti": 400.00,
+        "Ucretsiz Parklanma Suresi (dakika)": 15,
+        "Tarifesi": "0-1 Saat  : 10,00;1-2 Saat  : 12,00;2-4 Saat  : 14,00;4-8 Saat  : 17,00;Tam Gün  : 22,00",
+        "Park Et Devam Et Noktasi": 0
+      },
+      {
+        "_id": 3,
+        "Park ID": 861,
+        "Park Adi": "Bakırköy İstanbul Caddesi 2",
+        "Lokasyon ID": 384,
+        "Lokasyon Kodu": 2,
+        "Lokasyon Adi": "0002 Bakırköy İstanbul Caddesi",
+        "Park Tipi ID": 2,
+        "Park Tipi": "YOL ÜSTÜ",
+        "Park Kapasitesi": 30,
+        "Calisma Saatleri": "08:00-19:00",
+        "Bolge ID": 4,
+        "Bolge": "Avrupa",
+        "Alt Bolge ID": 1083,
+        "Alt Bolge": "Avrupa 4",
+        "Ilce ID": 7,
+        "Ilce": "BAKIRKÖY",
+        "Adres": "YEŞİLKÖY MAHALLESİ İSTANBUL CADDESİ ÜZERİ BAKIRKÖY",
+        "Enlem/Boylam": "POINT (28.875321425593391 40.97841938898064)",
+        "Polygon Verisi": "MULTIPOLYGON (((28.87546464 40.97842251, 28.87546099 40.97844394, 28.87517821 40.97841626, 28.87518186 40.97839483, 28.87546464 40.97842251)))",
+        "Boylam": 28.875321425593398316777893342077732086181640625,
+        "Enlem": 40.978419388980597659610793925821781158447265625,
+        "Aylik Abonelik Ucreti": 400.00,
+        "Ucretsiz Parklanma Suresi (dakika)": 15,
+        "Tarifesi": "0-1 Saat  : 10,00;1-2 Saat  : 12,00;2-4 Saat  : 14,00;4-8 Saat  : 17,00;Tam Gün  : 22,00",
+        "Park Et Devam Et Noktasi": 0
+      },
+      {
+        "_id": 4,
+        "Park ID": 862,
+        "Park Adi": "Bakırköy İstanbul Caddesi 3",
+        "Lokasyon ID": 384,
+        "Lokasyon Kodu": 2,
+        "Lokasyon Adi": "0002 Bakırköy İstanbul Caddesi",
+        "Park Tipi ID": 2,
+        "Park Tipi": "YOL ÜSTÜ",
+        "Park Kapasitesi": 70,
+        "Calisma Saatleri": "08:00-19:00",
+        "Bolge ID": 4,
+        "Bolge": "Avrupa",
+        "Alt Bolge ID": 1083,
+        "Alt Bolge": "Avrupa 4",
+        "Ilce ID": 7,
+        "Ilce": "BAKIRKÖY",
+        "Adres": "YEŞİLKÖY MAHALLESİ İSTANBUL CADDESİ ÜZERİ BAKIRKÖY",
+        "Enlem/Boylam": "POINT (28.87595720460348 40.978472523602171)",
+        "Polygon Verisi": "MULTIPOLYGON (((28.87628195 40.9784853, 28.87627923 40.97850682, 28.87571066 40.97846781, 28.87563976 40.97846225, 28.87564269 40.97844076, 28.87585627 40.97845387, 28.87628195 40.9784853)))",
+        "Boylam": 28.875957204603498240658154827542603015899658203125,
+        "Enlem": 40.97847252360219982847411301918327808380126953125,
+        "Aylik Abonelik Ucreti": 400.00,
+        "Ucretsiz Parklanma Suresi (dakika)": 15,
+        "Tarifesi": "0-1 Saat  : 10,00;1-2 Saat  : 12,00;2-4 Saat  : 14,00;4-8 Saat  : 17,00;Tam Gün  : 22,00",
+        "Park Et Devam Et Noktasi": 0
+      },
+      {
+        "_id": 5,
+        "Park ID": 867,
+        "Park Adi": "Bakırköy İstanbul Caddesi 8",
+        "Lokasyon ID": 384,
+        "Lokasyon Kodu": 2,
+        "Lokasyon Adi": "0002 Bakırköy İstanbul Caddesi",
+        "Park Tipi ID": 2,
+        "Park Tipi": "YOL ÜSTÜ",
+        "Park Kapasitesi": 40,
+        "Calisma Saatleri": "08:00-19:00",
+        "Bolge ID": 4,
+        "Bolge": "Avrupa",
+        "Alt Bolge ID": 1083,
+        "Alt Bolge": "Avrupa 4",
+        "Ilce ID": 7,
+        "Ilce": "BAKIRKÖY",
+        "Adres": "YEŞİLKÖY MAHALLESİ İSTANBUL CADDESİ ÜZERİ BAKIRKÖY",
+        "Enlem/Boylam": "POINT (28.878947832742334 40.978643838182634)",
+        "Polygon Verisi": "MULTIPOLYGON (((28.87909771 40.97868195, 28.87907967 40.97866407, 28.87905588 40.97867783, 28.87903783 40.97865995, 28.87901404 40.97867372, 28.878996 40.97865584, 28.87897221 40.9786696, 28.87895563 40.97865296, 28.87893345 40.97866717, 28.87891427 40.97864998, 28.87889139 40.97866461, 28.87887222 40.97864742, 28.87884934 40.97866206, 28.87883017 40.97864487, 28.8788073 40.9786595, 28.87878812 40.97864231, 28.87876525 40.97865694, 28.87874607 40.97863976, 28.87879597 40.97860778, 28.87881514 40.97862497, 28.87883802 40.97861034, 28.87885719 40.97862753, 28.87888007 40.9786129, 28.87889925 40.97863009, 28.87892212 40.97861545, 28.8789413 40.97863264, 28.87896417 40.97861801, 28.87898334 40.9786352, 28.87900607 40.97862164, 28.87902411 40.97863952, 28.87904791 40.97862576, 28.87906595 40.97864364, 28.87908974 40.97862987, 28.87910778 40.97864775, 28.87913157 40.97863399, 28.87914962 40.97865187, 28.87909771 40.97868195)))",
+        "Boylam": 28.8789478327422983738870243541896343231201171875,
+        "Enlem": 40.97864383818259881309131742455065250396728515625,
+        "Aylik Abonelik Ucreti": 400.00,
+        "Ucretsiz Parklanma Suresi (dakika)": 15,
+        "Tarifesi": "0-1 Saat  : 10,00;1-2 Saat  : 12,00;2-4 Saat  : 14,00;4-8 Saat  : 17,00;Tam Gün  : 22,00",
+        "Park Et Devam Et Noktasi": 0
+      }
+    ],
+    "limit": 5,
+    "_links": {
+      "start": "/api/3/action/datastore_search?limit=5&resource_id=c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9",
+      "next": "/api/3/action/datastore_search?offset=5&limit=5&resource_id=c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9"
+    },
+    "total": 731
+  }}
