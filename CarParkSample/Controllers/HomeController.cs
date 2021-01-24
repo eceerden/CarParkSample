@@ -77,21 +77,6 @@ namespace CarParkSample.Controllers
 
             }
 
-
-
-            //for (int i = 0; i < list.Length; i++)
-            //{
-            //    record.Add(list[i]);
-
-            //}
-
-            //foreach (var item in list)
-            //{
-            //    _parkcontext.Records.Add(item);
-            //    _parkcontext.SaveChanges();
-            //}
-
-            
                   
             return Json(list);
         }
