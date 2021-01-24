@@ -26,7 +26,9 @@ namespace CarParkSample.Models.ORM.Context
 
         public DbSet<Record> Records { get; set; }
 
-        
+        public DbSet<RecordSelected> RecordSelects { get; set; }
+
+
 
     }
 }

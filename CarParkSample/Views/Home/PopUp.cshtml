@@ -1,0 +1,218 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>OTOPARK KONUMLARI</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #instruction {
+            padding: 15px;
+            background: white;
+            color: black;
+            border: 5px solid gold;
+            font-family: sans-serif;
+            font-size: 1.2em;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.11/"></script>
+
+    <script>
+        require([
+            "esri/tasks/Locator",
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/Graphic"
+        ], function (Locator, Map, MapView, Graphic) {
+
+            // Set up a locator task using the world geocoding service
+            var locatorTask = new Locator({
+                url:
+                    "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+            });
+
+            var map = new Map({
+                basemap: "topo-vector"
+            });
+
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [28.9795, 41.015137],
+                zoom: 13
+            });
+
+            view.ui.add("instruction", "bottom-left");
+
+          
+
+            var simpleMarkerSymbol = {
+                type: "simple-marker",
+                color: [226, 119, 40],  // orange
+                outline: {
+                    color: [255, 255, 255], // white
+                    width: 1
+                }
+            };
+
+            fetch("/Home/RecordsDB")
+                .then((res) => res.json())
+                .then((result) => {
+
+                    result.forEach((item) => {
+
+                        let point = {
+                            type: "point",
+                            longitude: item.boylam,
+                            latitude: item.enlem,
+                            data: item
+                        };
+                       
+
+                        var pointGraphic = new Graphic({
+                            geometry: point,
+                            symbol: simpleMarkerSymbol
+                        });
+
+                        view.graphics.add(pointGraphic);
+
+                    })
+
+
+                })
+
+
+
+
+            /*******************************************************************
+             * This click event sets generic content on the popup not tied to
+             * a layer, graphic, or popupTemplate. The location of the point is
+             * used as input to a reverse geocode method and the resulting
+             * address is printed to the popup content.
+             *******************************************************************/
+            view.popup.autoOpenEnabled = false;
+            var lat = 0;
+                var lon = 0;
+
+              
+                view.on("click", function (event) {
+                   
+                view.popup.open({
+                    // Set the popup's title to the coordinates of the location
+                    title: "Reverse geocode: [" + lon + ", " + lat + "]",
+                    location: event.mapPoint
+                });
+
+                console.log(event);
+                lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
+                lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
+
+               // $('#recorddetail').modal('show');
+
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="viewDiv"></div>
+
+    <!-- The Modal -->
+    <div class="modal" id="recorddetail">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Product Detail</h4>
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <label for="">Street : </label>
+                        <input for="" id="street" />
+
+                    </div>
+                    <div>
+                        <label for="">City : </label>
+                        <input for="" id="city" />
+
+                    </div>
+                    <div>
+                        <label for="">Region : </label>
+                        <input for="" id="region" />
+
+                    </div>
+                    <div>
+                        <label for="">Country : </label>
+                        <input for="" id="country" />
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="kayit" class="btn btn-primary">Kayıt</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="instruction">
+        Click on the map to retrieve coordinates and address
+    </div>
+
+    <script>
+
+        $("#kayit").click(function () {
+
+            alert("arada bir fark var");
+            var record = new Object();
+            record.ParkAdi = $("#parkadi").val();
+            record.enlem = lat;
+            record.boylam = lon;
+
+            $.ajax({
+
+                type: "POST",
+                url: "/RecordSelected/AddRecord",
+                data: record,
+                success: function (msg) {
+                    alert(msg);
+                }
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>

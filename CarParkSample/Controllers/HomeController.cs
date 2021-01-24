@@ -35,15 +35,15 @@ namespace CarParkSample.Controllers
             return View();
         }
 
-
-        public JsonResult Records()
+        // DataBase Verilerini JSON olarak gösteren route
+        public JsonResult RecordsDB()
         {
             List<Record> records = _parkcontext.Records.ToList();
 
             return Json(records);
         }
-        
-        public IActionResult Index2()
+        // Veri API den database imize aktarmak için kullandığımız Route (front tarafı çalışmadığı için) Bir kere kullanımlık 
+        public IActionResult Veriler()
         {
             string data = new WebClient().DownloadString("https://data.ibb.gov.tr/en/datastore/odata3.0/c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9?&$format=json");
             
@@ -95,13 +95,14 @@ namespace CarParkSample.Controllers
             return Json(list);
         }
        
-
-        public IActionResult Index3()
+        // Harita ve üzerinde Konumlar
+        public IActionResult Harita_Veriler()
         {
             return View();
         }
 
-        public IActionResult Index4()
+        // Harita ve üzerinde otopark işaretleri ve pop-up
+        public IActionResult PopUp()
         {
             return View();
         }
@@ -192,9 +193,7 @@ namespace CarParkSample.Controllers
 
         }
 
-
-
-
+      
 
     }
 }
