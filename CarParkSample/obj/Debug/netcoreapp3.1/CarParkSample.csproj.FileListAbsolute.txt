@@ -432,3 +432,5 @@ C:\Users\Ece\source\repos\CarParkSample\CarParkSample\bin\Debug\netcoreapp3.1\zh
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index2.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index3.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index4.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\RecordList.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs

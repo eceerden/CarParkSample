@@ -3,15 +3,17 @@ using System;
 using CarParkSample.Models.ORM.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CarParkSample.Migrations
 {
     [DbContext(typeof(CarParkContext))]
-    partial class CarParkContextModelSnapshot : ModelSnapshot
+    [Migration("20210124132052_recordtableedited")]
+    partial class recordtableedited
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +89,7 @@ namespace CarParkSample.Migrations
 
             modelBuilder.Entity("CarParkSample.Models.ORM.Record", b =>
                 {
-                    b.Property<int>("_id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
@@ -167,7 +169,10 @@ namespace CarParkSample.Migrations
                     b.Property<int>("Ucretsiz_Parklanma_Suresi_dakika")
                         .HasColumnType("integer");
 
-                    b.HasKey("_id");
+                    b.Property<int>("_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
 
                     b.ToTable("Records");
                 });

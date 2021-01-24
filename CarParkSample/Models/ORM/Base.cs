@@ -7,7 +7,7 @@ namespace CarParkSample.Models.ORM
 {
     public class Base
     {
-        public int ID { get; set; }
+       
         public bool IsDeleted { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace CarParkSample.Models.ORM
 {
     public class _Bölge : Base
     {
+        public int ID { get; set; }
         public string Bolge { get; set; }
     }
 }

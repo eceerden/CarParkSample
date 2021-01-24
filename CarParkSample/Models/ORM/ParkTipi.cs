@@ -8,6 +8,7 @@ namespace CarParkSample.Models.ORM
 {
     public class ParkTipi : Base
     {
+        public int ID { get; set; }
         [DisplayName("Park Tipi")]
         public string Park_Tipi { get; set; }
 

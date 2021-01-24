@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace CarParkSample.Models.ORM
 {
     public class Lokasyon : Base
+
+
     {
+        public int ID { get; set; }
         [DisplayName("Lokasyon Adi")]
         public string Lokasyon_Adi { get; set; }
 
