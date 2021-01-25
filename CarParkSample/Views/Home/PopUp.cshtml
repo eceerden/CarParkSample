@@ -1,12 +1,18 @@
 ﻿
 @{
+    //ViewData["Title"] = "PopUp";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
+
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>OTOPARK KONUMLARI</title>
 
@@ -45,10 +51,10 @@
             "esri/Graphic"
         ], function (Locator, Map, MapView, Graphic) {
 
-            // Set up a locator task using the world geocoding service
-            var locatorTask = new Locator({
+            // set up a locator task using the world geocoding service
+            var locatortask = new locator({
                 url:
-                    "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+                    "https://geocode.arcgis.com/arcgis/rest/services/world/geocodeserver"
             });
 
             var map = new Map({
@@ -85,7 +91,8 @@
                             type: "point",
                             longitude: item.boylam,
                             latitude: item.enlem,
-                            id: item.id,
+                            //id: item.id,
+                            //ilce: item.Ilce,
                             data: item
                         };
 
@@ -101,11 +108,7 @@
 
 
                 })
-
-
-
-
-            /*******************************************************************
+           /*******************************************************************
              * This click event sets generic content on the popup not tied to
              * a layer, graphic, or popupTemplate. The location of the point is
              * used as input to a reverse geocode method and the resulting
@@ -118,11 +121,11 @@
 
             view.on("click", function (event) {
 
-                //view.popup.open({
-                //    // Set the popup's title to the coordinates of the location
-                //    title: "Reverse geocode: [" + lon + ", " + lat + "]",
-                //    location: event.mapPoint
-                //});
+                view.popup.open({
+                    // Set the popup's title to the coordinates of the location
+                    title: "Reverse geocode: [" + lon + ", " + lat + "]",
+                    location: event.mapPoint
+                });
 
 
                 $(function () {
@@ -284,7 +287,7 @@
             record.Ilce = $("#ilce").val();
             record.Adres = $("#adres").val();
             record.AylikAbonelikUcreti = $("#ucret").val();
-            record.UcretsizParklanmaSuresi(dakika) = $("#sure").val();
+            record.UcretsizParklanmaSuresidakika = $("#sure").val();
             record.Tarifesi = $("#tarife").val();
 
             record.enlem = lat;

@@ -45,5 +45,14 @@ namespace CarParkSample.Controllers
             }
 
         }
+
+
+        public JsonResult selectedrecords()
+        {
+            List<RecordSelected> selects = _parkcontext.RecordSelects.ToList();
+
+
+            return Json(selects);
+        }
     }
 }

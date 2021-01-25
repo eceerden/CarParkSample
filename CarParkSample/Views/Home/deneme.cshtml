@@ -1,0 +1,342 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>
+        PopUp deneme3
+    </title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet"
+          href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/layers/FeatureLayer",
+            "esri/views/MapView"
+            
+        ], function (Map, FeatureLayer, MapView) {
+            // Create the map
+            var map = new Map({
+                basemap: "gray-vector"
+            });
+
+            // Create the MapView
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-73.95, 40.702],
+                zoom: 10
+            });
+
+            
+
+            /*************************************************************
+             * The PopupTemplate content is the text that appears inside the
+             * popup. {fieldName} can be used to reference the value of an
+             * attribute of the selected feature. HTML elements can be used
+             * to provide structure and styles within the content. The
+             * fieldInfos property is an array of objects (each object representing
+             * a field) that is use to format number fields and customize field
+             * aliases in the popup and legend.
+             **************************************************************/
+
+            var template = {
+                // autocasts as new PopupTemplate()
+                title: "{NAME} in {COUNTY}",
+                content: [
+                    {
+                        // It is also possible to set the fieldInfos outside of the content
+                        // directly in the popupTemplate. If no fieldInfos is specifically set
+                        // in the content, it defaults to whatever may be set within the popupTemplate.
+                        type: "fields",
+                        fieldInfos: [
+                            {
+                                fieldName: "B12001_calc_pctMarriedE",
+                                label: "Married %"
+                            },
+                            {
+                                fieldName: "B12001_calc_numMarriedE",
+                                label: "People Married",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            },
+                            {
+                                fieldName: "B12001_calc_numNeverE",
+                                label: "People that Never Married",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            },
+                            {
+                                fieldName: "B12001_calc_numDivorcedE",
+                                label: "People Divorced",
+                                format: {
+                                    digitSeparator: true,
+                                    places: 0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            // Reference the popupTemplate instance in the
+            // popupTemplate property of FeatureLayer
+            var featureLayer = new FeatureLayer({
+                url:
+                    "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/ACS_Marital_Status_Boundaries/FeatureServer/2",
+                popupTemplate: template
+            });
+            map.add(featureLayer);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--@{
+    Layout = null;
+}
+@model List<CarParkSample.Models.VM.RecordDTO>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>örnek app</title>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        var map;
+
+
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/PopupTemplate"
+        ], function (Map, MapView, FeatureLayer, PopupTemplate) {
+
+            //popupTemplate.title = "Otopark Verisi",
+            //    //popupTemplate.content =
+
+
+            var map = new Map({
+                basemap: "topo-vector"
+            });
+
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [28.9795, 41.015137], // longitude, latitude
+                zoom: 13
+            });
+
+
+                fetch("/Home/RecordsDB")
+                    .then((res) => res.json())
+                    .then((result) => {
+
+                        result.forEach((item) => {
+
+
+                            var popupTrailheads = {
+                                title: "Otopark",
+                                content:
+                                    "<b>ID :</b>" + item._id + "<b>Park ID:</b>" + item.parkID
+                            };
+
+                            var trailheads = new FeatureLayer({
+                                url:
+                                    "https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id=c3eb0d72-1ce4-4983-a3a8-6b0b4b19fcb9&limit=5",
+                                outFields: [item._id, item.parkID],
+                                popupTemplate: popupTrailheads
+                            });
+
+                            map.add(trailheads);
+
+
+
+                        })
+
+
+                    })
+
+                view.on("click", function (event) {
+
+                    view.popup.open({
+                        // Set the popup's title to the coordinates of the location
+                        title: "Reverse geocode: [" + lon + ", " + lat + "]",
+                        location: event.mapPoint
+                    });
+                    console.log(event);
+                    lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
+                    lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
+
+                    $('#recorddetail').modal('show');
+
+                })
+
+        });
+    </script>
+</head>
+<body>
+    <div id="viewDiv"></div>-->
+<!-- The Modal -->
+<!--<div class="modal" id="recorddetail">
+    <div class="modal-dialog">
+        <div class="modal-content">-->
+<!-- Modal Header -->
+<!--<div class="modal-header">
+    <h4 class="modal-title">Product Detail</h4>
+
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>-->
+<!-- Modal body -->
+<!--<div class="modal-body">
+    <div>
+        <label for="">ID : </label>
+        <input for="" id="id" />
+
+    </div>
+    <div>
+        <label for="">Park ID : </label>
+        <input for="" id="park" />
+
+    </div>
+    <div>
+        <label for="">Park Adı : </label>
+        <label for="" id="parkadi"></label>
+
+    </div>
+
+    <div>
+        <label for="">Lokasyon Adı : </label>
+        <input for="" id="lokadi" />
+
+    </div>
+
+    <div>
+        <label for="">Park Tipi : </label>
+        <input for="" id="parktipi" />
+
+    </div>
+    <div>
+        <label for="">Park Kapasitesi : </label>
+        <input for="" id="kapasite" />
+
+    </div>
+    <div>
+        <label for="">Çalışma Saatleri : </label>
+        <input for="" id="saat" />
+
+    </div>
+
+    <div>
+        <label for="">Bolge : </label>
+        <input for="" id="bolge" />
+
+    </div>
+
+    <div>
+        <label for="">Alt Bolge : </label>
+        <input for="" id="altbolge" />
+
+    </div>
+
+    <div>
+        <label for="">İlce : </label>
+        <input for="" id="ilce" />
+
+    </div>
+    <div>
+        <label for="">Adres : </label>
+        <input for="" id="adres" />
+
+    </div>
+    <div>
+        <label for="">Boylam : </label>
+        <input for="" id="boylam" />
+
+    </div>
+    <div>
+        <label for="">Enlem : </label>
+        <input for="" id="enlem" />
+
+    </div>
+    <div>
+        <label for="">Aylık Abonelik Ucreti : </label>
+        <input for="" id="ucret" />
+
+    </div>
+    <div>
+        <label for="">Ucretsiz Parklanma Suresi(dakika) : </label>
+        <input for="" id="sure" />
+
+    </div>
+    <div>
+        <label for="">Tarifesi : </label>
+        <input for="" id="tarife" />
+
+    </div>
+
+</div>-->
+<!-- Modal footer -->
+<!--<div class="modal-footer">
+                    <button type="button" id="kayit" class="btn btn-primary">Kayıt</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>-->

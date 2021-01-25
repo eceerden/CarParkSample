@@ -24,10 +24,7 @@ namespace CarParkSample.Controllers
         {
             _parkcontext = parkcontext;
         }
-
-        
-     
-
+      
         //[EnableCors("ApiCorsPolicy")]
         public IActionResult Index()
         {
@@ -275,6 +272,12 @@ namespace CarParkSample.Controllers
 
             return RedirectToAction("RecordList", "Home");
 
+        }
+
+
+        public IActionResult deneme()
+        {
+            return View();
         }
 
     }
