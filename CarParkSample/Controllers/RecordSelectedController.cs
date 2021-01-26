@@ -253,7 +253,7 @@ RecordSelected model = new RecordSelected();
 
             _parkcontext.SaveChanges();
 
-            return RedirectToAction("selectedrecords", "RecordSelected");
+            return Redirect("/RecordSelected/selectedrecords");
 
         }
 

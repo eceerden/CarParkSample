@@ -91,7 +91,7 @@
                         longitude: item.boylam,
                         latitude: item.enlem,
                         id: item._id,
-                      
+
                         data: item
                     };
 
@@ -144,7 +144,6 @@
 
         })
 
-
     })
 </script>
 
@@ -164,9 +163,7 @@
                 </div>
 
                 <!-- Modal body -->
-
                 <div class="modal-body">
-
 
                     <div>
                         <label for="">ID : </label>
@@ -204,7 +201,6 @@
                         <input for="" id="saat" />
 
                     </div>
-
                     <div>
                         <label for="">Bolge : </label>
                         <input for="" id="bolge" />
@@ -250,16 +246,15 @@
                     <div>
                         <label for="">Tarifesi : </label>
                         <input for="" id="tarife" />
-
                     </div>
-
 
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" id="kayit" class="btn btn-primary">Kayıt</button>
-                    <button type="button" id="kontrol" class="btn btn-secondary">Kontrol</button>
+                    @*<button id="@Model._id" class="btn btn-primary ekle" type="submit">Kayıt</button>*@
+                  
 
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
