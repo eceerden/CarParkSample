@@ -10,21 +10,21 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
- 
-    <title>Car Park Project</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+<title>Car Park Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+<link rel="stylesheet" href="css/style.css">
 
 <style>
-    /*.container{
-        display:flex;
-        justify-content:col        justify-content:center;
-    }
-*/
+        /*.container{
+            display:flex;
+            justify-content:col        justify-content:center;
+        }
+    */
 
 </style>
 
@@ -40,9 +40,9 @@
                 <div class="projectFactsWrap ">
                     <div class="item wow fadeInUpBig animated animated" data-number="12" style="visibility: visible;">
                         <i class="fas fa-parking"></i>
-                       
-                            <p id="number1" class="number">500</p>
-                       
+
+                        <p id="number1" class="number">500</p>
+
 
                         <span></span>
                         <p>Kayıtlı Otopark Sayısı</p>
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </div>
-      
+
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
@@ -81,6 +81,37 @@
 
 
 </body>
+<script>$.fn.jQuerySimpleCounter = function (options) {
+        var settings = $.extend({
+            start: 0,
+            end: 100,
+            easing: 'swing',
+            duration: 400,
+            complete: ''
+        }, options);
+
+        var thisElement = $(this);
+
+        $({ count: settings.start }).animate({ count: settings.end }, {
+            duration: settings.duration,
+            easing: settings.easing,
+            step: function () {
+                var mathCount = Math.ceil(this.count);
+                thisElement.text(mathCount);
+            },
+            complete: settings.complete
+        });
+    };
+
+
+    $('#number1').jQuerySimpleCounter({ end: 500, duration: 2000 });
+    $('#number2').jQuerySimpleCounter({ end: 55, duration: 3000 });
+    $('#number3').jQuerySimpleCounter({ end: 359, duration: 2000 });
+    $('#number4').jQuerySimpleCounter({ end: 246, duration: 2500 });
+
+
+
+    </script>
 
 
 
