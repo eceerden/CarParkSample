@@ -71,7 +71,6 @@ namespace CarParkSample.Controllers
                     record.AltBolge = item.AltBolge;
                     record.IlceID = item.IlceID;
                     record.Ilce = item.Ilce;
-
                     record.Adres = item.Adres;
                     record.Enlem_Boylam = item.Enlem_Boylam;
                     record.Polygon_Verisi = item.Polygon_Verisi;

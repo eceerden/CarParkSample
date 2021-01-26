@@ -166,7 +166,7 @@ RecordSelected model = new RecordSelected();
             model.Park_Et_Devam_Et_Noktasi = record.Park_Et_Devam_Et_Noktasi;
 
 
-            List<RecordSelected> selects = _parkcontext.RecordSelects.ToList();
+            List<Record> selects = _parkcontext.Records.ToList();
 
             List<AltBolgeDTO> altBolgeDTOs = new List<AltBolgeDTO>();
 

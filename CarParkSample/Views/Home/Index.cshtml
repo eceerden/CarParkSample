@@ -4,115 +4,131 @@
 }
 
 @model List<CarParkSample.Models.ORM.Record>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 
 
 <title>Car Park Project</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+@*<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>*@
 
-<link rel="stylesheet" href="css/style.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
 
 <style>
-        /*.container{
-            display:flex;
-            justify-content:col        justify-content:center;
-        }
-    */
+  
+    .container {
+        margin-top: 100px
+    }
 
+    .counter-box {
+        display: block;
+        background: #f6f6f6;
+        padding: 40px 20px 37px;
+        text-align: center;
+            height:200px
+    }
+
+        .counter-box p {
+            margin: 5px 0 0;
+            padding: 0;
+            color: #f6f6f6;
+            font-size: 18px;
+            font-weight: 500
+        }
+
+        .counter-box i {
+            font-size: 60px;
+            margin: 0 0 15px;
+            color: #d2d2d2
+        }
+
+    .counter {
+        display: block;
+        font-size: 32px;
+        font-weight: 700;
+        color: #f6f6f6;
+        line-height: 28px
+    }
+
+    .counter-box.colored {
+        background-color: slateblue
+    }
+    .counter-box.colored2 {
+        background-color: teal
+    }
+    .counter-box.colored3 {
+        background-color:tomato
+    }
+    .counter-box.colored4 {
+        background-color: dodgerblue
+    }
+
+        .counter-box.colored p,
+        .counter-box.colored i,
+        .counter-box.colored .counter {
+            color: #fff
+        }
 </style>
 
 
 <body>
+
     <div class="container">
-        <div class="sectiontitle">
-            <h2>Rakamlar</h2>
-            <span class="headerLine"></span>
-        </div>
-        <div id="projectFacts" class="sectionClass">
-            <div class="fullWidth eight columns">
-                <div class="projectFactsWrap ">
-                    <div class="item wow fadeInUpBig animated animated" data-number="12" style="visibility: visible;">
-                        <i class="fas fa-parking"></i>
-
-                        <p id="number1" class="number">500</p>
-
-
-                        <span></span>
-                        <p>Kayıtlı Otopark Sayısı</p>
-                    </div>
-                    <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
-                        <i class="fa fa-smile-o"></i>
-                        <p id="number2" class="number">340</p>
-                        <span></span>
-                        <p>Yol Üstü Otopark Sayısı </p>
-                    </div>
-                    <div class="item wow fadeInUpBig animated animated" data-number="359" style="visibility: visible;">
-                        <i class="fa fa-coffee"></i>
-                        <p id="number3" class="number">63</p>
-                        <span></span>
-                        <p>Açık Otopark Sayısı</p>
-                    </div>
-                    <div class="item wow fadeInUpBig animated animated" data-number="246" style="visibility: visible;">
-                        <i class="fa fa-camera"></i>
-                        <p id="number4" class="number">34</p>
-                        <span></span>
-                        <p>Kapalı Otopark Sayısı</p>
-                    </div>
+        <div class="row">
+            <div class="four col-md-3">
+                <div class="counter-box colored">
+                    <i class="fa fa-thumbs-o-up"></i> <span class="counter">500</span>
+                                                      <p>Kayıtlı Otopark Sayısı</p>
+                </div>
+            </div>
+            <div class="four col-md-3">
+                <div class="counter-box colored2">
+                    <i class="fa fa-group"></i> <span class="counter">340</span>
+                                                <p>Yol Üstü Otopark Sayısı</p>
+                </div>
+            </div>
+            <div class="four col-md-3 ">
+                <div class="counter-box colored3">
+                    <i class="fa fa-shopping-cart"></i> <span class="counter">63</span>
+                                                        <p>Açık Otopark Sayısı</p>
+                </div>
+            </div>
+            <div class="four col-md-3 ">
+                <div class="counter-box colored4">
+                    <i class="fa fa-user"></i> <span class="counter">34</span>
+                                               <p>Kapalı Otopark Sayısı</p>
                 </div>
             </div>
         </div>
-
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-
-
-        <script src="js/index.js"></script>
-
     </div>
 
-
-
+   
 
 </body>
-<script>$.fn.jQuerySimpleCounter = function (options) {
-        var settings = $.extend({
-            start: 0,
-            end: 100,
-            easing: 'swing',
-            duration: 400,
-            complete: ''
-        }, options);
 
-        var thisElement = $(this);
+<script>
+    $(document).ready(function () {
 
-        $({ count: settings.start }).animate({ count: settings.end }, {
-            duration: settings.duration,
-            easing: settings.easing,
-            step: function () {
-                var mathCount = Math.ceil(this.count);
-                thisElement.text(mathCount);
-            },
-            complete: settings.complete
+        $('.counter').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
         });
-    };
 
-
-    $('#number1').jQuerySimpleCounter({ end: 500, duration: 2000 });
-    $('#number2').jQuerySimpleCounter({ end: 340, duration: 2500 });
-    $('#number3').jQuerySimpleCounter({ end: 63, duration: 1500 });
-    $('#number4').jQuerySimpleCounter({ end: 34, duration: 1000 });
-
-
-
-    </script>
-
+    });
+</script>
 
 
 
