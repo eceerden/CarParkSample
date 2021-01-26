@@ -276,7 +276,7 @@ namespace CarParkSample.Controllers
 
         }
 
-
+        // Pop up denemeleri
         public IActionResult deneme()
         {
             return View();

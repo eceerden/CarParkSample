@@ -101,10 +101,11 @@ namespace CarParkSample.Controllers
         public IActionResult Ekle(int id)
         {
             Record selected = _parkcontext.Records.FirstOrDefault(x => x.ID == id);
-
-            if (selected == null)
+            
+            var control = _parkcontext.RecordSelects.FirstOrDefault(x => x.ID == id);
+            if (control == null)
             {
-                RecordSelected model = new RecordSelected();
+RecordSelected model = new RecordSelected();
 
                 model.ParkID = selected.ParkID;
                 model.ParkAdi = selected.ParkAdi;
@@ -132,8 +133,10 @@ namespace CarParkSample.Controllers
 
                 _parkcontext.RecordSelects.Add(model);
                 _parkcontext.SaveChanges();
-            }
+          
             return RedirectToAction("RecordList","Home");
+            }
+            return RedirectToAction("RecordList", "Home");
         }
 
         public IActionResult Edit(int id)
