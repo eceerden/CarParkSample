@@ -433,6 +433,9 @@ C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\RecordList.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Harita_Veriler.cshtml.g.cs
-C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\PopUp.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
 C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\deneme.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\RecordSelected\selectedrecords.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\Home\Mevcut.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\RecordSelected\Secilen.cshtml.g.cs
+C:\Users\Ece\source\repos\CarParkSample\CarParkSample\obj\Debug\netcoreapp3.1\Razor\Views\RecordSelected\Edit.cshtml.g.cs

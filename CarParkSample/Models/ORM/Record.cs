@@ -12,8 +12,8 @@ namespace CarParkSample.Models.ORM
 {
     public class Record : Base
     {
-        [Key]
-        public int _id { get; set; }
+       
+        
         public int ParkID { get; set; }
 
         public string ParkAdi { get; set; }

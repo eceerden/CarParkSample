@@ -51,11 +51,11 @@ namespace CarParkSample.Controllers
 
             foreach (var item in list.recordlist)
             {
-                var recordControl = _parkcontext.Records.FirstOrDefault(x => x._id == item._id );
+                var recordControl = _parkcontext.Records.FirstOrDefault(x => x.ID == item._id );
                 if (recordControl == null)
                 {
                     Record record = new Record();
-                    record._id = item._id;
+                    record.ID = item._id;
                     record.ParkID = item.ParkID;
                     record.ParkAdi = item.ParkAdi;
                     record.LokasyonAdi = item.LokasyonAdi;
@@ -97,10 +97,12 @@ namespace CarParkSample.Controllers
         {
             return View();
         }
-
+        
         // Harita ve üzerinde otopark işaretleri ve pop-up
-        public IActionResult PopUp()
+        public IActionResult Mevcut()
         {
+           
+
             return View();
         }
 
@@ -110,7 +112,7 @@ namespace CarParkSample.Controllers
 
             List<RecordDTO> records = _parkcontext.Records.Select(x => new RecordDTO()
             {
-                _id = x._id,
+                _id = x.ID,
                 ParkID = x.ParkID,
                 ParkAdi = x.ParkAdi,
                 LokasyonAdi = x.LokasyonAdi,
@@ -145,7 +147,7 @@ namespace CarParkSample.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            Record record = _parkcontext.Records.FirstOrDefault(x => x._id == id);
+            Record record = _parkcontext.Records.FirstOrDefault(x => x.ID == id);
 
             _parkcontext.Records.Remove(record);
 
@@ -158,10 +160,10 @@ namespace CarParkSample.Controllers
 
         public IActionResult Edit(int id)
         {
-            Record record = _parkcontext.Records.FirstOrDefault(x => x._id == id);
+            Record record = _parkcontext.Records.FirstOrDefault(x => x.ID == id);
 
             RecordDTO model = new RecordDTO();
-            model._id = record._id;
+            model._id = record.ID;
             model.ParkID = record.ParkID;
             model.ParkAdi = record.ParkAdi;
             model.LokasyonAdi = record.LokasyonAdi;
@@ -252,7 +254,7 @@ namespace CarParkSample.Controllers
         [HttpPost]
         public IActionResult Edit(RecordDTO model, string ParkTipi, string Bolge, string Altbolge, string Ilce)
         {
-            Record record = _parkcontext.Records.FirstOrDefault(q => q._id == model._id);
+            Record record = _parkcontext.Records.FirstOrDefault(q => q.ID == model._id);
 
             record.ParkAdi = model.ParkAdi;
             record.LokasyonAdi = model.LokasyonAdi;

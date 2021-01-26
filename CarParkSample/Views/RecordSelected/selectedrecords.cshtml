@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewData["Title"] = "RecordList";
+    ViewData["Title"] = "selectedrecords";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 @model List<CarParkSample.Models.VM.RecordDTO>
 
@@ -96,8 +97,8 @@
                         <td>@item.Park_Et_Devam_Et_Noktasi</td>
 
                         <td>
-                            <button id="@item._id" class="btn btn-primary ekle" type="submit">Sisteme Ekle</button>
-                            <a href="/Home/Edit/@item._id" class="btn btn-warning" role="button">Edit</a>
+                            
+                            <a href="/RecordSelected/Edit/@item._id" class="btn btn-warning" role="button">Edit</a>
                             <button id="@item._id" class="btn btn-danger delete" type="submit">Delete</button>
                         </td>
 
@@ -123,34 +124,18 @@
 
     });
 
-    $(document).on("click", ".ekle", function () {
-        let id = $(this).attr("id");
-        $.ajax({
-            url: "/RecordSelected/Ekle",
-            type: "POST",
-            data: { id: id },
-            success: function (msg) {
-                console.log(msg);
-               
-                window.location.href = "/Home/RecordList"
-                alert("Ekleme işlemi gerçekleştirildi!");
-            },
-            error: function (err) {
-                alert("Başarısız!");
-            }
-        })
-    });
+   
 
     $(document).on("click", ".delete", function () {
         let id = $(this).attr("id");
         $.ajax({
-            url: "/Home/Delete",
+            url: "/RecordSelected/Delete",
             type: "POST",
             data: { id: id },
             success: function (msg) {
                 console.log(msg);
                 $("#" + id).fadeOut();
-                window.location.href = "/Home/RecordList"
+                window.location.href = "/RecordSelected/selectedrecords"
                 alert("Silme işlemi gerçekleştirildi!!");
             },
             error: function (err) {
@@ -159,3 +144,5 @@
         })
     });
 </script>
+
+

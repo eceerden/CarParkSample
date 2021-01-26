@@ -7,8 +7,8 @@ namespace CarParkSample.Models.ORM
 {
     public class RecordSelected : Base
     {
-        public int ID { get; set; }
-        public int _id { get; set; }
+       
+       
         public int ParkID { get; set; }
 
         public string ParkAdi { get; set; }
